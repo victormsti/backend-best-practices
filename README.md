@@ -21,12 +21,12 @@ Here, you'll see:
 
 * **Unit Tests**: you'll see patterns for unit tests here: builders, mocks, assertions, so on.
 
-* **Integrations tests** : for integrations tests, I'm using **MockMvc** for testing the controller and the entire workflow. also I'm using **DataJpaTest** for database integration tests.
+* **Integrations tests** : for integrations tests, I'm using **MockMvc** for testing the controller and the entire workflow. Also I'm using **DataJpaTest** for database integration tests.
 
 
 ## Running the application locally
 
-It's really easy to run this application locally. You just need to fo two things:
+It's really easy to run this application locally. You just need to do two things:
 
 1. Set up the **local** profile as the environment variable 
 
