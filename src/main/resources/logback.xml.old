@@ -1,0 +1,20 @@
+<configuration>
+    <appender name="jsonConsoleAppender" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <jsonGeneratorDecorator class="net.logstash.logback.mask.MaskingJsonGeneratorDecorator">
+
+                <defaultMask>****</defaultMask>
+
+                <path>document</path>
+                <path>email</path>
+                <path>token</path>
+                <path>password</path>
+                <path>auth</path>
+
+            </jsonGeneratorDecorator>
+        </encoder>
+    </appender>
+    <root level="INFO">
+        <appender-ref ref="jsonConsoleAppender"/>
+    </root>
+</configuration>

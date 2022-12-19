@@ -1,0 +1,16 @@
+feign:
+  cat-fact:
+    url: "placeholder"
+
+jwt:
+  subject: "best-practices"
+  jwt_secret: "eyJhbGciOiJIUzUxMiJ9eyJzdWIiOiJyb290MiIsImlhdCI6MTYyMzA5ODkzNiwiZXhwIjoxNjIzMTE2OTM2fQUlFvXP9d3KD5UvSxaswq1Km52UCTbBML2BPx6D0qgO43aaUGPKakBFZkYNxHSM1OU8uO7W9Ry07EiWyd4E1g"
+
+
+cron:
+  user-message-sender-scheduler: '0 0/5 * * * *'
+
+messaging:
+  created-user:
+    exchange: "best-practices-exchange"
+    routing-key: "foo.bar.baz"

@@ -1,0 +1,34 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    username: sa
+    url: jdbc:h2:mem:testdb;
+    platform: h2
+    password: ''
+  h2:
+    console:
+      enabled: 'true'
+      path: /h2-console
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+
+feign:
+  cat-fact:
+    url: "https://catfact.ninja"
+
+jwt:
+  subject: "best-practices"
+  jwt_secret: "eyJhbGciOiJIUzUxMiJ9eyJzdWIiOiJyb290MiIsImlhdCI6MTYyMzA5ODkzNiwiZXhwIjoxNjIzMTE2OTM2fQUlFvXP9d3KD5UvSxaswq1Km52UCTbBML2BPx6D0qgO43aaUGPKakBFZkYNxHSM1OU8uO7W9Ry07EiWyd4E1g"
+
+cron:
+  user-message-sender-scheduler: '0 0/5 * * * *'
+
+messaging:
+  created-user:
+    exchange: "best-practices-exchange"
+    routing-key: "foo.bar.baz"

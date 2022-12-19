@@ -1,0 +1,69 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.6'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+ext {
+	set('springBootVersion', "2.7.6")
+	set('springCloudVersion', "2021.0.5")
+	set('testcontainersVersion', "1.17.6")
+	set('logbackClassicVersion', '1.2.7')
+	set('logbackCoreVersion', '1.2.7')
+	set('logbackJsonClassicVersion', '0.1.5')
+	set('logbackJacksonVersion', '0.1.5')
+	set('logstashEncoderVersion', '6.6')
+	set('feignVersion', '12.1')
+	set('jjwtVersion', '0.11.5')
+
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+//	implementation "io.github.openfeign:feign-core:${feignVersion}"
+	implementation 'org.springframework.cloud:spring-cloud-starter-feign:1.4.7.RELEASE'
+
+	implementation "io.jsonwebtoken:jjwt-api:${jjwtVersion}"
+	implementation "ch.qos.logback:logback-classic:$logbackClassicVersion"
+	implementation "ch.qos.logback:logback-core:$logbackCoreVersion"
+	implementation "ch.qos.logback.contrib:logback-json-classic:$logbackJsonClassicVersion"
+	implementation "ch.qos.logback.contrib:logback-jackson:$logbackJacksonVersion"
+	implementation "net.logstash.logback:logstash-logback-encoder:$logstashEncoderVersion"
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly "io.jsonwebtoken:jjwt-impl:${jjwtVersion}","io.jsonwebtoken:jjwt-jackson:${jjwtVersion}"
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.springframework.amqp:spring-rabbit-test'
+}
+
+dependencyManagement {
+	imports {
+		mavenBom("org.testcontainers:testcontainers-bom:${testcontainersVersion}")
+		mavenBom("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+	}
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
