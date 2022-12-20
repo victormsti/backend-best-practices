@@ -29,11 +29,13 @@ public class AuthServiceTest extends AbstractTest {
     public void whenCallMethodLoginUserThenShouldLoginSuccessFully(){
 
         ReflectionTestUtils.setField(authService, "secret", expectedSecret);
+        ReflectionTestUtils.setField(authService, "subject", expectedSubject);
+
         Mockito.when(userRepository.findByEmail(expectedEmail)).thenReturn(Optional.of(expectedUser));
+        Mockito.when(passwordEncoder.matches(expectedLoginRequest.getPassword(),expectedUser.getPassword())).thenReturn(Boolean.TRUE);
 
         LoginResponse actualLoginResponse = authService.login(expectedLoginRequest);
 
         Assertions.assertFalse(actualLoginResponse.getToken().isEmpty());
-        Assertions.assertEquals(expectedTokenLength, actualLoginResponse.getToken().length());
     }
 }

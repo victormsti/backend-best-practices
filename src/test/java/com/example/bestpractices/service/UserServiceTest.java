@@ -29,7 +29,6 @@ public class UserServiceTest extends AbstractTest {
     @Mock
     private PasswordEncoder passwordEncoder;
 
-
     @InjectMocks
     private UserServiceImpl userService;
 
@@ -45,7 +44,6 @@ public class UserServiceTest extends AbstractTest {
         Assertions.assertEquals(expectedUserResponse.getId(), actualUserResponse.getId());
         Assertions.assertEquals(expectedUserResponse.getName(), actualUserResponse.getName());
         Assertions.assertEquals(expectedUserResponse.getEmail(), actualUserResponse.getEmail());
-        Assertions.assertEquals(expectedUserResponse.getPassword(), actualUserResponse.getPassword());
         Assertions.assertEquals(expectedUserResponse.getRole(), actualUserResponse.getRole());
         Assertions.assertEquals(expectedUserResponse.getBirthDate(), actualUserResponse.getBirthDate());
         Assertions.assertEquals(expectedUserResponse.getCreationDate(), actualUserResponse.getCreationDate());
@@ -62,7 +60,6 @@ public class UserServiceTest extends AbstractTest {
         Assertions.assertEquals(expectedUserResponse.getId(), actualUserResponse.getId());
         Assertions.assertEquals(expectedUserResponse.getName(), actualUserResponse.getName());
         Assertions.assertEquals(expectedUserResponse.getEmail(), actualUserResponse.getEmail());
-        Assertions.assertEquals(expectedUserResponse.getPassword(), actualUserResponse.getPassword());
         Assertions.assertEquals(expectedUserResponse.getRole(), actualUserResponse.getRole());
         Assertions.assertEquals(expectedUserResponse.getBirthDate(), actualUserResponse.getBirthDate());
         Assertions.assertEquals(expectedUserResponse.getCreationDate(), actualUserResponse.getCreationDate());

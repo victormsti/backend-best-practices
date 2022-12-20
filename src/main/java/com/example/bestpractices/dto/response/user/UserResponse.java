@@ -17,7 +17,6 @@ public class UserResponse implements Serializable {
     private String name;
     private String role;
     private String email;
-    private String password;
     private LocalDate birthDate;
     private LocalDate creationDate;
     private LocalDate updateDate;

@@ -16,6 +16,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.Optional;
 
 @Slf4j
@@ -64,6 +66,10 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
             token = token.replace(TOKEN_PREFIX, "");
 
             Token decodedToken = JWTUtil.decodeToken(token);
+
+            if(decodedToken == null || (new Date(decodedToken.getExp() * 1000).before(new Date()))) {
+                throw new UnauthorizedException();
+            }
 
             Optional<User> optionalUser = userRepository.findByEmail(decodedToken.getIss());
 

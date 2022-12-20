@@ -56,6 +56,10 @@ public class UserMapperImpl implements UserMapper {
                 .role(request.getRole() != null ? request.getRole() : user.getRole())
                 .email(request.getEmail() != null ? request.getEmail() : user.getEmail())
                 .birthDate(request.getBirthDate() != null ? request.getBirthDate() : user.getBirthDate())
+                .password(user.getPassword())
+                .updateDate(LocalDate.now())
+                .creationDate(user.getCreationDate())
+                .id(user.getId())
                 .build();
     }
 }

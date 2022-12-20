@@ -26,7 +26,7 @@ public class AuthServiceImpl implements AuthService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    private final Long TIME_TO_LIVE =  60000L;
+    private final Long TIME_TO_LIVE =  3600000L;
 
     @Autowired
     public AuthServiceImpl(UserRepository userRepository,
